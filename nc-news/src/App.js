@@ -1,4 +1,4 @@
-import { useState } from "react";
+//import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 
 import "./App.css";
@@ -12,11 +12,11 @@ function App() {
   return (
     <div className="App">
       <Header className="Header" />
-      <Nav className="Nav" />"
+      <Nav className="Nav" />
       <Routes>
-        <Route path="/" element={<Articles />} />
-        <Route path="/Topics" element={<Topics />} />
-        <Route path="/Users" element={<Users />} />
+        <Route path="/" element={<Articles />}></Route>
+        <Route path="/Topics" element={<Topics />}></Route>
+        <Route path="/Users" element={<Users />}></Route>
       </Routes>
     </div>
   );
