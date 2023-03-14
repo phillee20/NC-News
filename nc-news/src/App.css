@@ -11,26 +11,49 @@
 .imgSize{
 max-width: 200px;
 max-height: 300px;
+border-radius: 10px;
 
 }
+
+.articleTitle{
+  font-size:1em;
+}
+
+#singleArticleImage{
+  border-bottom:double;
+  padding:1rem;
+}
+
 .articleCard{
-
-  display: flexbox;
-  place-items: center;
-  grid-template-rows: auto 1fr auto;
+  display: grid;
+  grid-template-columns: repeat(3, 2fr);
+  grid-template-rows: repeat(-3, 10vw);
   grid-gap: 20px;
-  list-style: none;
-  border-radius: 10px;
-  margin: 1rem;
-  padding: 1rem;
-  transition: box-shadow 0.3s ease-in-out;
-  object-fit: cover; 
-
 }
 
+#singleArticleAuthor {
+display:block;
+text-align: left;
+justify-content: left;
+position:absolute;
+}
 
+#topic{
+text-align: left;
+position:absolute;
+}
 
+#descriptionHead{
+
+text-align: left;
+
+}
  
+#descriptionBody{
+background-blend-mode: hard-light;
+background-color:floralwhite;
+
+}
 
 .nav {
   display: flex;

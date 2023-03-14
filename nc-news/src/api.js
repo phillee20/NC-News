@@ -8,7 +8,16 @@ export const fetchAllArticles = () => {
   return articlesAPI
     .get("https://phil-solo-backend-project.onrender.com/api/articles")
     .then(({ data }) => {
-      console.log(data.articles);
+      return data.articles;
+    });
+};
+
+export const fetchSingleArticle = (article_id) => {
+  return articlesAPI
+    .get(
+      `https://phil-solo-backend-project.onrender.com/api/articles/${article_id}`
+    )
+    .then(({ data }) => {
       return data.articles;
     });
 };
