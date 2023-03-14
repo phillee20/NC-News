@@ -17,7 +17,7 @@ function Articles() {
   }, []);
 
   if (isLoading) {
-    <p>Loading...</p>;
+    <p>Loading Articles...</p>;
   }
 
   return (
