@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { fetchArticleComment } from "../api";
+import { patchComment } from "../api";
 
 function Comments() {
   const { article_id } = useParams();
@@ -12,13 +13,26 @@ function Comments() {
     });
   }, [article_id]);
 
+  const upVote = (comment_id) => {
+    patchComment(comment_id).then((newComment) => {
+      setComments((currentComments) => {
+        return currentComments.map((comment) => {
+          if (comment.comment_id === comment_id) {
+            //console.log(comment);
+            return { ...comment, votes: comment.votes + 1 };
+          }
+          return comment;
+        });
+      });
+    });
+  };
+
   return (
     <section>
       <h2 id="CommentTitle">Comments</h2>
       <ul>
         {comments.map((comment) => {
           const createdAt = new Date(comment.created_at);
-          //console.log(createdAt);
           const time = new Date(createdAt).toLocaleTimeString("en", {
             timeStyle: "short",
             hour12: false,
@@ -29,12 +43,19 @@ function Comments() {
           const month = createdAt.getMonth();
           return (
             <li className="commentList" key={comment.comment_id}>
-              <p id="commentUser">User: {comment.author}</p>
-              <p id="commentDate">
+              <p className="commentUser">User: {comment.author}</p>
+              <p className="commentDate">
                 Comment Created - {`${day}.${month}.${year} ${time}`}
               </p>
-              <p id="commentBody">{comment.body}</p>
-              <p id="commentVote">Votes: {comment.votes}</p>
+              <p className="commentBody">{comment.body}</p>
+
+              <button
+                className="commentVote"
+                onClick={() => upVote(comment.comment_id)}
+              >
+                <span aria-label="Vote">Vote 👍: </span>
+                {comment.votes}
+              </button>
             </li>
           );
         })}

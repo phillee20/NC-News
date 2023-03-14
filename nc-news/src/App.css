@@ -44,9 +44,7 @@ position:absolute;
 }
 
 #descriptionHead{
-
 text-align: left;
-
 }
  
 #descriptionBody{
@@ -80,18 +78,19 @@ background-color:floralwhite;
   text-size-adjust:inherit
 }
 
-#commentUser {
+.commentVote{
+  text-align:right
+}
+
+.commentUser {
   text-align: left;
 }
 
-#commentDate {
+.commentDate {
 text-align: left;
 }
 
-#commentVote{
-  text-align: right;
-  padding:1rem;
-}
+
 
 
 .App-header {

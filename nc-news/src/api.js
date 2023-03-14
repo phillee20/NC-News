@@ -32,3 +32,12 @@ export const fetchArticleComment = (article_id) => {
       return response.data.comments;
     });
 };
+
+export const patchComment = (comment_id) => {
+  return articlesAPI
+    .patch(`./comments/${comment_id}`, { increase: 1 })
+    .then(({ data }) => {
+      //console.log(data);
+      return data.comment;
+    });
+};
