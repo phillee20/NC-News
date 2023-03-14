@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { fetchSingleArticle } from "../api";
+import Comments from "./Comments";
 
 export function SingleArticle() {
   const { article_id } = useParams();
@@ -10,14 +11,14 @@ export function SingleArticle() {
   useEffect(() => {
     setIsLoading(true);
     fetchSingleArticle(article_id).then((singleArticle) => {
-      console.log(singleArticle);
-      setSingleArticle(singleArticle);
+      //console.log(singleArticle);
       setIsLoading(false);
+      setSingleArticle(singleArticle);
     });
   }, [article_id]);
 
   if (isLoading) {
-    <p>Loading Article...</p>;
+    return <p>Loading Article...</p>;
   }
 
   return (
@@ -43,6 +44,7 @@ export function SingleArticle() {
       <p id="descriptionBody">{singleArticle.body}</p>
       <p id="commentCount">Comment count: {singleArticle.comment_count}</p>
       <p id="votes">Votes: {singleArticle.votes}</p>
+      <Comments></Comments>
     </div>
   );
 }
