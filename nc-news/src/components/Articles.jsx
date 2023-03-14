@@ -11,20 +11,20 @@ function Articles() {
     setIsLoading(true);
     fetchAllArticles().then((fetchedArticles) => {
       //console.log(articles);
-      setArticles(fetchedArticles);
       setIsLoading(false);
+      setArticles(fetchedArticles);
     });
   }, []);
 
   if (isLoading) {
-    <p>Loading Articles...</p>;
+    return <p>Loading Articles...</p>;
   }
 
   return (
     <ul className="articleCard">
       {articles.map((article) => {
         return <ArticleCard key={article.article_id} article={article} />;
-      })}
+      })} 
     </ul>
   );
 }

@@ -74,6 +74,24 @@ background-color:floralwhite;
   list-style-type: none;
 }
 
+.commentList {
+  list-style-type: none;
+  border-style: double;
+  text-size-adjust:inherit
+}
+
+#commentUser {
+  text-align: left;
+}
+
+#commentDate {
+text-align: left;
+}
+
+#commentVote{
+  text-align: right;
+  padding:1rem;
+}
 
 
 .App-header {
