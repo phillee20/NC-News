@@ -4,7 +4,6 @@ import Header from "./components/Header";
 import Nav from "./components/Nav";
 import Topics from "./components/Topics";
 import Articles from "./components/Articles";
-//import Users from "./components/Users";
 import { SingleArticle } from "./components/SingleArticle";
 
 function App() {
@@ -22,5 +21,3 @@ function App() {
 }
 
 export default App;
-
-// <Route path="/Users" element={<Users />}></Route>
