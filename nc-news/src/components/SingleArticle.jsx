@@ -1,17 +1,19 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { fetchSingleArticle } from "../api";
+import { fetchSingleArticle, patchArticle } from "../api";
+import "../App.css";
 import Comments from "./Comments";
 
 export function SingleArticle() {
   const { article_id } = useParams();
   const [singleArticle, setSingleArticle] = useState({});
   const [isLoading, setIsLoading] = useState(true);
+  const [userVote, setUserVote] = useState(0);
+  const [votingErr, setVotingErr] = useState(false);
 
   useEffect(() => {
     setIsLoading(true);
     fetchSingleArticle(article_id).then((singleArticle) => {
-      //console.log(singleArticle);
       setIsLoading(false);
       setSingleArticle(singleArticle);
     });
@@ -20,6 +22,40 @@ export function SingleArticle() {
   if (isLoading) {
     return <p>Loading Article...</p>;
   }
+
+  const upVote = () => {
+    //Increment vote
+    setVotingErr(false);
+    setUserVote((currentVote) => {
+      return currentVote + 1;
+    });
+    localStorage.setItem(singleArticle.article_id, "voted");
+    patchArticle(singleArticle.article_id, 1).catch(() => {
+      setUserVote((currentVote) => {
+        return currentVote - 1;
+      });
+      setVotingErr(true);
+    });
+  };
+
+  const downVote = () => {
+    //decrement vote
+    setVotingErr(false);
+    setUserVote((currentVote) => {
+      return currentVote - 1;
+    });
+    localStorage.setItem(singleArticle.article_id, "voted");
+    patchArticle(singleArticle.article_id, -1).catch(() => {
+      setUserVote((currentVote) => {
+        return currentVote + 1;
+      });
+      setVotingErr(true);
+    });
+  };
+
+  const hasVoted =
+    userVote !== 0 ||
+    localStorage.getItem(singleArticle.article_id) === "voted";
 
   return (
     <div>
@@ -32,20 +68,43 @@ export function SingleArticle() {
       <p id="singleArticleAuthor">
         <b>Author:</b> {singleArticle.author}
       </p>
-      <br></br>
       <p id="topic">
         <b>Topic:</b> {singleArticle.topic}
       </p>
-      <br></br>
-      <br></br>
       <p id="descriptionHead">
         <b>Description:</b>
       </p>
       <p id="descriptionBody">{singleArticle.body}</p>
       <p id="commentCount">Comment count: {singleArticle.comment_count}</p>
-      <p id="votes">Votes: {singleArticle.votes}</p>
+      <p id="articleVotes">Votes: {singleArticle.votes + userVote}</p>
 
+      <button //Increment Button
+        className="articleVote"
+        onClick={() => {
+          upVote();
+        }}
+        disabled={hasVoted}
+      >
+        <span className="articleVotesBtn" aria-label="articleVoteBtn">
+          Vote 👍:
+        </span>
+      </button>
+
+      <button //Decrement Button
+        className="articleVote"
+        onClick={() => {
+          downVote();
+        }}
+        disabled={hasVoted}
+      >
+        <span className="articleVotesBtn" aria-label="articleVoteBtn">
+          Vote 👎:
+        </span>
+      </button>
+
+      {votingErr && <p>Please refresh ansd try again!</p>}
       <Comments></Comments>
     </div>
   );
 }
+//singleArticle causing votes to updatefor two buttons together
