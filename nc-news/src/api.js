@@ -32,3 +32,12 @@ export const fetchArticleComment = (article_id) => {
       return response.data.comments;
     });
 };
+
+export const postComment = (article_id, newComment) => {
+  return articlesAPI
+    .post(`/${article_id}/comments`, { text: newComment })
+    .then(({ data }) => {
+      console.log(data);
+      return data.comment;
+    });
+};

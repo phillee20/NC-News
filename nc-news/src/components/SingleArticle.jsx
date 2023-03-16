@@ -44,6 +44,7 @@ export function SingleArticle() {
       <p id="descriptionBody">{singleArticle.body}</p>
       <p id="commentCount">Comment count: {singleArticle.comment_count}</p>
       <p id="votes">Votes: {singleArticle.votes}</p>
+
       <Comments></Comments>
     </div>
   );
