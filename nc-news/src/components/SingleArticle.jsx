@@ -77,41 +77,40 @@ export function SingleArticle() {
       <p id="topic">
         <b>Topic:</b> {singleArticle.topic}
       </p>
+      <br></br>
       <p id="descriptionHead">
         <b>Description:</b>
       </p>
       <p id="descriptionBody">{singleArticle.body}</p>
       <p id="commentCount">Comment count: {singleArticle.comment_count}</p>
-      <p id="articleVotes">
+      <p id="articleVotesCount">
         Votes: {singleArticle.votes + upVotes + downVotes}
       </p>
 
       <button //Increment Button
-        className="articleVote"
+        className="articleVoteEmoji"
         onClick={() => {
           upVote();
         }}
         disabled={hasUpVoted}
       >
-        <span className="articleVotesBtn" aria-label="articleVoteBtn">
-          Vote 👍:
-        </span>
+        <span className="articleVoteEmoji">Vote 👍:</span>
       </button>
 
       <button //Decrement Button
-        className="articleVote"
+        className="articleVoteEmoji"
         onClick={() => {
           downVote();
         }}
         disabled={hasDownVoted}
       >
-        <span className="articleVotesBtn" aria-label="articleVoteBtn">
-          Vote 👎:
-        </span>
+        <span className="articleVoteEmoji">Vote 👎:</span>
       </button>
 
       {upVotingErr || (downVotingErr && <p>Please refresh and try again!</p>)}
-      <Comments></Comments>
+      <label className="commentLabel">
+        <Comments></Comments>
+      </label>
     </div>
   );
 }

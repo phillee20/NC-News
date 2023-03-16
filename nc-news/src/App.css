@@ -1,25 +1,78 @@
 /* Mobile first design */
 
+
+*{
+  background-color: black;
+}
 .App {
   text-align: center;
-  background: linear-gradient(rgba(241, 235, 235, 0.5), rgb(240, 237, 237))
+  background-color: black;
+}
+  
+.header{
+text-decoration:none;
+color:firebrick;
+background-color:black
+}
+
+.header:active{
+text-decoration:none;
+}
+
+#navHome{
+  background-color:white;
+}
+
+#navTopic{
+  background-color: white;
+}
+
+#navUser{
+  background-color: white;
+}
+
+
+.nav {
+  display:flex;
+  justify-content:space-evenly;
+  color:firebrick;
+  background-color:white;
+  border-radius: 2px;
+
   }
   
-  .App-logo {
-  height: 40vw;
-  pointer-events: none;
+  .nav a {
+    text-decoration:solid;
+    color:black;
+    background-color:white;
   }
-  
-  .imgSize{
-  max-width: 100%;
-  max-height: auto;
-  border-radius: 10px;
+
+  .nav a:hover{
+    color:crimson;
   }
+
+
+.imgSize{
+max-width: 100%;
+max-height: auto;
+border-radius: 40px;
+}
   
-  .articleTitle{
-  font-size: 1.5rem;
-  }
+.imgSize:hover{
+border: solid 4px black;
+ margin: -2px;
+}
+
+.articleTitle{
+font-size: 1rem;
+color:white;
+}
   
+.articleTitle:hover{
+color:crimson;
+}
+  
+
   #singleArticleImage{
   border-bottom: double;
   padding: 1rem;
@@ -29,111 +82,133 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 20px;
+  color:white;
   }
 
   .articleVotesBtn{
     border-radius: 20px;
+    color:white;
   }
 
   #singleArticleAuthor {
   text-align: left;
+  color: white;
   }
   
   #topic{
   text-align: left;
+  color: white;
   }
   
   #descriptionHead{
   text-align: left;
+  color: white;
   }
   
   #descriptionBody{
-  background-color: floralwhite;
-  }
-  
-  .nav {
-  display: flex;
-  justify-content: space-evenly;
-  color: white;
   background-color: black;
-  margin-top: 20px;
-  padding: 0.5rem;
-  border-radius: 5px;
+  color:white;
+
   }
   
-  .nav a {
-  text-decoration: none;
-  color: white;
-  }
-  
+
   #articleList {
   list-style-type: none;
   padding: 0;
   margin: 0;
   }
+
+  #articleVotesCount{
+    color:white;
+  }
+
+  .articleVoteEmoji{
+    color:white;
+    background-color: grey;
+  }
   
+  #commentCount{
+    color:white;
+  }
   .commentVote{
     text-align: right;
     padding:1rem;
+    color:white;
     }
+
+  .commentLabel{
+color: white;
+  }
 
   .commentList {
   list-style-type: none;
   border-style: double;
   padding: 0;
   margin: 0;
+  color:white;
   }
   
   
   .commentUser {
   text-align: left;
+  color:white;
   }
   
   .commentDate {
   text-align: left;
+  color:white;
   }
   
 
   #name{
     text-align: left;
+    color:white;
   }
 
 #newComment{
   text-align: left;
+  color:white;
+  border: 1rem;
+  border-color:grey;
+  background-color:whitesmoke;
 }
 
 .commentSubmitBtn{
+  color:white;
   border-radius: 10px;
-  
+  border-color: white;
 }
+
+
+
 
   /* Media queries */
   
   @media only screen and (min-width: 600px) {
+
   .articleCard{
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: auto;
-  }
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto;
+    }
   
   #singleArticleAuthor {
   position: static;
+  color:white;
   }
   
   #topic{
   position: static;
+  color:white;
   }
   
   #descriptionHead{
   font-size: 1.5rem;
+  color:white;
   }
   
   #descriptionBody{
-  background-blend-mode: hard-light;
-  }
+    background-blend-mode: hard-light;
+    color:white;
+    }
   
-  .nav {
-  width: 100%;
-  padding-left: 10px;
-  padding-right: 10px;
-  }
   }

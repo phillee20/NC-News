@@ -9,7 +9,6 @@ function CommentAdder({ comments, setComments }) {
   const handleSubmit = (event) => {
     event.preventDefault();
     postComment(article_id, newComment).then((response) => {
-      //console.log(response);
       setComments([response, ...comments]);
       setNewComment("");
     });
@@ -18,6 +17,7 @@ function CommentAdder({ comments, setComments }) {
   return (
     <form className="commentAdder" onSubmit={handleSubmit}>
       <section>Name</section>
+
       <section>
         <label htmlFor="newComment">Comment: </label>
         <textarea

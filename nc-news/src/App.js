@@ -9,7 +9,7 @@ import { SingleArticle } from "./components/SingleArticle";
 function App() {
   return (
     <div className="App">
-      <Header className="Header" />
+      <Header className="header" />
       <Nav className="Nav" />
       <Routes>
         <Route path="/" element={<Articles />}></Route>
