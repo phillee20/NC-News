@@ -1,112 +1,125 @@
+/* Mobile first design */
+
 .App {
   text-align: center;
   background: linear-gradient(rgba(241, 235, 235, 0.5), rgb(240, 237, 237))
-}
-
-.App-logo {
-  height: 40vmin;
+  }
+  
+  .App-logo {
+  height: 40vw;
   pointer-events: none;
-}
-
-.imgSize{
-max-width: 200px;
-max-height: 300px;
-border-radius: 10px;
-
-}
-
-.articleTitle{
-  font-size:1em;
-}
-
-#singleArticleImage{
-  border-bottom:double;
-  padding:1rem;
-}
-
-.articleCard{
+  }
+  
+  .imgSize{
+  max-width: 100%;
+  max-height: auto;
+  border-radius: 10px;
+  }
+  
+  .articleTitle{
+  font-size: 1.5rem;
+  }
+  
+  #singleArticleImage{
+  border-bottom: double;
+  padding: 1rem;
+  }
+  
+  .articleCard{
   display: grid;
-  grid-template-columns: repeat(3, 2fr);
-  grid-template-rows: repeat(-3, 10vw);
+  grid-template-columns: repeat(2, 1fr);
   grid-gap: 20px;
-}
+  }
 
-#singleArticleAuthor {
-display:block;
-text-align: left;
-justify-content: left;
-position:absolute;
-}
+  .articleVotesBtn{
+    border-radius: 20px;
+  }
 
-#topic{
-text-align: left;
-position:absolute;
-}
-
-#descriptionHead{
-
-text-align: left;
-
-}
- 
-#descriptionBody{
-background-blend-mode: hard-light;
-background-color:floralwhite;
-
-}
-
-.nav {
+  #singleArticleAuthor {
+  text-align: left;
+  }
+  
+  #topic{
+  text-align: left;
+  }
+  
+  #descriptionHead{
+  text-align: left;
+  }
+  
+  #descriptionBody{
+  background-color: floralwhite;
+  }
+  
+  .nav {
   display: flex;
-  font-size:medium;
-  justify-content:space-evenly;
-  color: White;
-  border: 1px solid White;
-  width: 40rem;
+  justify-content: space-evenly;
+  color: white;
   background-color: black;
   margin-top: 20px;
-  padding: 0.5%;
-  padding-left: 0px;
+  padding: 0.5rem;
   border-radius: 5px;
-  margin: 0 auto;
-}
-
-#articleList {
+  }
+  
+  .nav a {
+  text-decoration: none;
+  color: white;
+  }
+  
+  #articleList {
   list-style-type: none;
-}
+  padding: 0;
+  margin: 0;
+  }
+  
+  .commentVote{
+    text-align: right;
+    padding:1rem;
+    }
 
-.commentList {
+  .commentList {
   list-style-type: none;
   border-style: double;
-  text-size-adjust:inherit
-}
-
-#commentUser {
+  padding: 0;
+  margin: 0;
+  }
+  
+  
+  .commentUser {
   text-align: left;
-}
-
-#commentDate {
-text-align: left;
-}
-
-#commentVote{
-  text-align: right;
-  padding:1rem;
-}
-
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-
+  }
+  
+  .commentDate {
+  text-align: left;
+  }
+  
+  /* Media queries */
+  
+  @media only screen and (min-width: 600px) {
+  .articleCard{
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto;
+  }
+  
+  #singleArticleAuthor {
+  position: static;
+  }
+  
+  #topic{
+  position: static;
+  }
+  
+  #descriptionHead{
+  font-size: 1.5rem;
+  }
+  
+  #descriptionBody{
+  background-blend-mode: hard-light;
+  }
+  
+  .nav {
+  width: 100%;
+  padding-left: 10px;
+  padding-right: 10px;
+  }
+  }

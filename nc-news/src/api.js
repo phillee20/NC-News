@@ -1,25 +1,19 @@
 import axios from "axios";
 
 const articlesAPI = axios.create({
-  baseURL: "https://phil-solo-backend-project.onrender.com/api/articles",
+  baseURL: "https://phil-solo-backend-project.onrender.com/api/",
 });
 
 export const fetchAllArticles = () => {
-  return articlesAPI
-    .get("https://phil-solo-backend-project.onrender.com/api/articles")
-    .then(({ data }) => {
-      return data.articles;
-    });
+  return articlesAPI.get("/articles").then(({ data }) => {
+    return data.articles;
+  });
 };
 
 export const fetchSingleArticle = (article_id) => {
-  return articlesAPI
-    .get(
-      `https://phil-solo-backend-project.onrender.com/api/articles/${article_id}`
-    )
-    .then(({ data }) => {
-      return data.articles;
-    });
+  return articlesAPI.get(`/articles/${article_id}`).then(({ data }) => {
+    return data.articles;
+  });
 };
 
 export const fetchArticleComment = (article_id) => {
@@ -28,7 +22,15 @@ export const fetchArticleComment = (article_id) => {
       `https://phil-solo-backend-project.onrender.com/api/articles/${article_id}/comments`
     )
     .then((response) => {
-      //console.log(response.data);
       return response.data.comments;
+    });
+};
+
+export const patchArticle = (article_id, singleVote) => {
+  return articlesAPI
+    .patch(`/articles/${article_id}`, { inc_votes: singleVote })
+    .then(({ data }) => {
+      //console.log(data);
+      return data.article;
     });
 };

@@ -10,7 +10,6 @@ function Articles() {
   useEffect(() => {
     setIsLoading(true);
     fetchAllArticles().then((fetchedArticles) => {
-      //console.log(articles);
       setIsLoading(false);
       setArticles(fetchedArticles);
     });
@@ -24,7 +23,7 @@ function Articles() {
     <ul className="articleCard">
       {articles.map((article) => {
         return <ArticleCard key={article.article_id} article={article} />;
-      })} 
+      })}
     </ul>
   );
 }
