@@ -26,9 +26,9 @@ export const fetchArticleComment = (article_id) => {
     });
 };
 
-export const patchArticle = (article_id) => {
+export const patchArticle = (article_id, singleVote) => {
   return articlesAPI
-    .patch(`/articles/${article_id}`, { inc_votes: 1 })
+    .patch(`/articles/${article_id}`, { inc_votes: singleVote })
     .then(({ data }) => {
       //console.log(data);
       return data.article;

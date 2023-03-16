@@ -30,7 +30,7 @@ export function SingleArticle() {
       return currentVote + 1;
     });
     localStorage.setItem(singleArticle.article_id, "voted");
-    patchArticle(singleArticle.article_id).catch(() => {
+    patchArticle(singleArticle.article_id, 1).catch(() => {
       setUserVote((currentVote) => {
         return currentVote - 1;
       });
@@ -45,7 +45,7 @@ export function SingleArticle() {
       return currentVote - 1;
     });
     localStorage.setItem(singleArticle.article_id, "voted");
-    patchArticle(singleArticle.article_id).catch(() => {
+    patchArticle(singleArticle.article_id, -1).catch(() => {
       setUserVote((currentVote) => {
         return currentVote + 1;
       });
@@ -76,7 +76,7 @@ export function SingleArticle() {
       </p>
       <p id="descriptionBody">{singleArticle.body}</p>
       <p id="commentCount">Comment count: {singleArticle.comment_count}</p>
-      <p id="articleVotes">Votes: {singleArticle.votes}</p>
+      <p id="articleVotes">Votes: {singleArticle.votes + userVote}</p>
 
       <button //Increment Button
         className="articleVote"
@@ -88,7 +88,6 @@ export function SingleArticle() {
         <span className="articleVotesBtn" aria-label="articleVoteBtn">
           Vote 👍:
         </span>
-        {singleArticle.votes + userVote}
       </button>
 
       <button //Decrement Button
@@ -101,10 +100,9 @@ export function SingleArticle() {
         <span className="articleVotesBtn" aria-label="articleVoteBtn">
           Vote 👎:
         </span>
-        {singleArticle.votes + userVote}
       </button>
 
-      {votingErr && <p>Already voted!</p>}
+      {votingErr && <p>Please refresh ansd try again!</p>}
       <Comments></Comments>
     </div>
   );
