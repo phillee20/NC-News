@@ -8,8 +8,10 @@ export function SingleArticle() {
   const { article_id } = useParams();
   const [singleArticle, setSingleArticle] = useState({});
   const [isLoading, setIsLoading] = useState(true);
-  const [userVote, setUserVote] = useState(0);
-  const [votingErr, setVotingErr] = useState(false);
+  const [upVotes, setUpVotes] = useState(0);
+  const [downVotes, setDownVotes] = useState(0);
+  const [upVotingErr, setUpVotingErr] = useState(false);
+  const [downVotingErr, setDownVotingErr] = useState(false);
 
   useEffect(() => {
     setIsLoading(true);
@@ -24,38 +26,42 @@ export function SingleArticle() {
   }
 
   const upVote = () => {
-    //Increment vote
-    setVotingErr(false);
-    setUserVote((currentVote) => {
+    //Increment upVote
+    setUpVotingErr(false);
+    setUpVotes((currentVote) => {
       return currentVote + 1;
     });
-    localStorage.setItem(singleArticle.article_id, "voted");
+    localStorage.setItem(singleArticle.article_id + "_up", "voted");
     patchArticle(singleArticle.article_id, 1).catch(() => {
-      setUserVote((currentVote) => {
+      setUpVotes((currentVote) => {
         return currentVote - 1;
       });
-      setVotingErr(true);
+      setUpVotingErr(true);
     });
   };
 
   const downVote = () => {
-    //decrement vote
-    setVotingErr(false);
-    setUserVote((currentVote) => {
+    //decrement downVote
+    setDownVotingErr(false);
+    setDownVotes((currentVote) => {
       return currentVote - 1;
     });
-    localStorage.setItem(singleArticle.article_id, "voted");
+    localStorage.setItem(singleArticle.article_id + "_down", "voted");
     patchArticle(singleArticle.article_id, -1).catch(() => {
-      setUserVote((currentVote) => {
+      setDownVotes((currentVote) => {
         return currentVote + 1;
       });
-      setVotingErr(true);
+      setDownVotingErr(true);
     });
   };
 
-  const hasVoted =
-    userVote !== 0 ||
-    localStorage.getItem(singleArticle.article_id) === "voted";
+  const hasUpVoted =
+    upVotes !== 0 ||
+    localStorage.getItem(singleArticle.article_id + "_up") === "voted";
+
+  const hasDownVoted =
+    downVotes !== 0 ||
+    localStorage.getItem(singleArticle.article_id + "_down") === "voted";
 
   return (
     <div>
@@ -76,14 +82,16 @@ export function SingleArticle() {
       </p>
       <p id="descriptionBody">{singleArticle.body}</p>
       <p id="commentCount">Comment count: {singleArticle.comment_count}</p>
-      <p id="articleVotes">Votes: {singleArticle.votes + userVote}</p>
+      <p id="articleVotes">
+        Votes: {singleArticle.votes + upVotes + downVotes}
+      </p>
 
       <button //Increment Button
         className="articleVote"
         onClick={() => {
           upVote();
         }}
-        disabled={hasVoted}
+        disabled={hasUpVoted}
       >
         <span className="articleVotesBtn" aria-label="articleVoteBtn">
           Vote 👍:
@@ -95,16 +103,15 @@ export function SingleArticle() {
         onClick={() => {
           downVote();
         }}
-        disabled={hasVoted}
+        disabled={hasDownVoted}
       >
         <span className="articleVotesBtn" aria-label="articleVoteBtn">
           Vote 👎:
         </span>
       </button>
 
-      {votingErr && <p>Please refresh ansd try again!</p>}
+      {upVotingErr || (downVotingErr && <p>Please refresh and try again!</p>)}
       <Comments></Comments>
     </div>
   );
 }
-//singleArticle causing votes to updatefor two buttons together

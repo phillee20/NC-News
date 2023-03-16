@@ -93,6 +93,20 @@
   text-align: left;
   }
   
+
+  #name{
+    text-align: left;
+  }
+
+#newComment{
+  text-align: left;
+}
+
+.commentSubmitBtn{
+  border-radius: 10px;
+  
+}
+
   /* Media queries */
   
   @media only screen and (min-width: 600px) {

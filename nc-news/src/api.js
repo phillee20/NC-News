@@ -30,16 +30,17 @@ export const patchArticle = (article_id, singleVote) => {
   return articlesAPI
     .patch(`/articles/${article_id}`, { inc_votes: singleVote })
     .then(({ data }) => {
-      //console.log(data);
       return data.article;
     });
 };
 
 export const postComment = (article_id, newComment) => {
   return articlesAPI
-    .post(`/${article_id}/comments`, { text: newComment })
+    .post(`/articles/${article_id}/comments`, {
+      body: newComment,
+      username: "grumpy19", //MAKE DYNAMIC
+    })
     .then(({ data }) => {
-      console.log(data);
-      return data.comment;
+      return data.postedComment;
     });
 };
