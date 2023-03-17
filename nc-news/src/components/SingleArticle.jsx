@@ -8,8 +8,12 @@ export function SingleArticle() {
   const { article_id } = useParams();
   const [singleArticle, setSingleArticle] = useState({});
   const [isLoading, setIsLoading] = useState(true);
-  const [userVote, setUserVote] = useState(0);
-  const [votingErr, setVotingErr] = useState(false);
+  const [upVotes, setUpVotes] = useState(0);
+  const [downVotes, setDownVotes] = useState(0);
+  const [upVotingErr, setUpVotingErr] = useState(false);
+  const [downVotingErr, setDownVotingErr] = useState(false);
+  const [hasUpVoted, setHasUpVoted] = useState(false);
+  const [hasDownVoted, setHasDownVoted] = useState(false);
 
   useEffect(() => {
     setIsLoading(true);
@@ -24,38 +28,42 @@ export function SingleArticle() {
   }
 
   const upVote = () => {
-    //Increment vote
-    setVotingErr(false);
-    setUserVote((currentVote) => {
+    //Increment upVote
+    setUpVotingErr(false);
+    setUpVotes((currentVote) => {
       return currentVote + 1;
     });
-    localStorage.setItem(singleArticle.article_id, "voted");
+    localStorage.setItem(singleArticle.article_id + "_up", "voted");
     patchArticle(singleArticle.article_id, 1).catch(() => {
-      setUserVote((currentVote) => {
+      setUpVotes((currentVote) => {
         return currentVote - 1;
       });
-      setVotingErr(true);
+      setUpVotingErr(true);
     });
   };
 
   const downVote = () => {
-    //decrement vote
-    setVotingErr(false);
-    setUserVote((currentVote) => {
+    //decrement downVote
+    setDownVotingErr(false);
+    setDownVotes((currentVote) => {
       return currentVote - 1;
     });
-    localStorage.setItem(singleArticle.article_id, "voted");
+    localStorage.setItem(singleArticle.article_id + "_down", "voted");
     patchArticle(singleArticle.article_id, -1).catch(() => {
-      setUserVote((currentVote) => {
+      setDownVotes((currentVote) => {
         return currentVote + 1;
       });
-      setVotingErr(true);
+      setDownVotingErr(true);
     });
   };
 
-  const hasVoted =
-    userVote !== 0 ||
-    localStorage.getItem(singleArticle.article_id) === "voted";
+  //   const hasUpVoted =
+  //     upVotes !== 0 ||
+  //     localStorage.getItem(singleArticle.article_id + "_up") === "voted";
+
+  //   const hasDownVoted =
+  //     downVotes !== 0 ||
+  //     localStorage.getItem(singleArticle.article_id + "_down") === "voted";
 
   return (
     <div>
@@ -71,40 +79,48 @@ export function SingleArticle() {
       <p id="topic">
         <b>Topic:</b> {singleArticle.topic}
       </p>
+      <br></br>
       <p id="descriptionHead">
         <b>Description:</b>
       </p>
       <p id="descriptionBody">{singleArticle.body}</p>
       <p id="commentCount">Comment count: {singleArticle.comment_count}</p>
-      <p id="articleVotes">Votes: {singleArticle.votes + userVote}</p>
+      <p id="articleVotesCount">
+        Votes: {singleArticle.votes + upVotes + downVotes}
+      </p>
 
       <button //Increment Button
-        className="articleVote"
+        className="articleVoteEmoji"
         onClick={() => {
           upVote();
+          setHasUpVoted(true);
+          setHasDownVoted(false);
         }}
-        disabled={hasVoted}
+        disabled={hasUpVoted}
       >
-        <span className="articleVotesBtn" aria-label="articleVoteBtn">
-          Vote 👍:
-        </span>
+        <span className="articleVoteEmoji">Vote 👍:</span>
       </button>
 
       <button //Decrement Button
-        className="articleVote"
+        className="articleVoteEmoji"
         onClick={() => {
           downVote();
+          setHasDownVoted(true);
+          setHasUpVoted(false);
         }}
-        disabled={hasVoted}
+        disabled={hasDownVoted}
       >
-        <span className="articleVotesBtn" aria-label="articleVoteBtn">
-          Vote 👎:
-        </span>
+        <span className="articleVoteEmoji">Vote 👎:</span>
       </button>
 
-      {votingErr && <p>Please refresh ansd try again!</p>}
-      <Comments></Comments>
+      {upVotingErr || //Error Handling
+        (downVotingErr && (
+          <p id="voteErrorMsg">Please refresh and try again!</p>
+        ))}
+      <label className="commentLabel">
+        <br></br>
+        <Comments></Comments>
+      </label>
     </div>
   );
 }
-//singleArticle causing votes to updatefor two buttons together

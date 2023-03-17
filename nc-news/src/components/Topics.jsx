@@ -8,8 +8,6 @@ function Topics() {
     event.preventDefault();
   };
 
-
-  
   if (isLoading) {
     return <p>Loading Articles for chosen topic...</p>;
   }
