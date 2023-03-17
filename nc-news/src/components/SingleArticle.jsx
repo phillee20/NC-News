@@ -12,6 +12,8 @@ export function SingleArticle() {
   const [downVotes, setDownVotes] = useState(0);
   const [upVotingErr, setUpVotingErr] = useState(false);
   const [downVotingErr, setDownVotingErr] = useState(false);
+  const [hasUpVoted, setHasUpVoted] = useState(false);
+  const [hasDownVoted, setHasDownVoted] = useState(false);
 
   useEffect(() => {
     setIsLoading(true);
@@ -55,13 +57,13 @@ export function SingleArticle() {
     });
   };
 
-  const hasUpVoted =
-    upVotes !== 0 ||
-    localStorage.getItem(singleArticle.article_id + "_up") === "voted";
+  //   const hasUpVoted =
+  //     upVotes !== 0 ||
+  //     localStorage.getItem(singleArticle.article_id + "_up") === "voted";
 
-  const hasDownVoted =
-    downVotes !== 0 ||
-    localStorage.getItem(singleArticle.article_id + "_down") === "voted";
+  //   const hasDownVoted =
+  //     downVotes !== 0 ||
+  //     localStorage.getItem(singleArticle.article_id + "_down") === "voted";
 
   return (
     <div>
@@ -91,6 +93,8 @@ export function SingleArticle() {
         className="articleVoteEmoji"
         onClick={() => {
           upVote();
+          setHasUpVoted(true);
+          setHasDownVoted(false);
         }}
         disabled={hasUpVoted}
       >
@@ -101,14 +105,20 @@ export function SingleArticle() {
         className="articleVoteEmoji"
         onClick={() => {
           downVote();
+          setHasDownVoted(true);
+          setHasUpVoted(false);
         }}
         disabled={hasDownVoted}
       >
         <span className="articleVoteEmoji">Vote 👎:</span>
       </button>
 
-      {upVotingErr || (downVotingErr && <p>Please refresh and try again!</p>)}
+      {upVotingErr || //Error Handling
+        (downVotingErr && (
+          <p id="voteErrorMsg">Please refresh and try again!</p>
+        ))}
       <label className="commentLabel">
+        <br></br>
         <Comments></Comments>
       </label>
     </div>

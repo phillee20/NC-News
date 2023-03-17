@@ -9,6 +9,7 @@ function CommentAdder({ comments, setComments }) {
   const handleSubmit = (event) => {
     event.preventDefault();
     postComment(article_id, newComment).then((response) => {
+      console.log(response);
       setComments([response, ...comments]);
       setNewComment("");
     });
@@ -19,12 +20,12 @@ function CommentAdder({ comments, setComments }) {
       <section>Name</section>
 
       <section>
-        <label htmlFor="newComment">Comment: </label>
+        <label htmlFor="textCommentArea">Comment: </label>
         <textarea
           placeholder="Please enter a comment here"
           rows="5"
           cols="40"
-          id="newComment"
+          className="textCommentArea"
           value={newComment}
           onChange={(event) => setNewComment(event.target.value)}
           required
