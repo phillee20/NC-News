@@ -45,6 +45,6 @@ export const postComment = (article_id, newComment) => {
     });
 };
 
-export const getTopics = () => {
-  return articleAPI;
-};
+// export const getTopics = () => {
+//   return articleAPI;
+// };
