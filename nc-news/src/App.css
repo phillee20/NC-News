@@ -93,10 +93,6 @@ color:crimson;
   color: white;
   }
   
-  #topic{
-  text-align: left;
-  color: white;
-  }
   
   #descriptionHead{
   text-align: left;
@@ -167,6 +163,15 @@ color: white;
     background-color:whitesmoke;
 }
 
+.nameInput{
+  color: black;
+    text-align: left;
+    border: 1rem;
+    border-color:grey;
+    background-color:whitesmoke;
+}
+
+
   #name{
     text-align: left;
     color:white;
@@ -181,6 +186,25 @@ color: white;
 
 #voteErrorMsg{
 color:red;
+}
+
+.dropDownTopics{
+  color:white;
+  background:transparent;
+}
+
+.topicOptions{
+  color: white;
+  background-color: white;
+}
+
+#topicLabel{
+  color:white;
+}
+
+.topicSubmitBtn {
+  color:black;
+  background-color: white;
 }
 
 
@@ -201,6 +225,7 @@ color:red;
   #topic{
   position: static;
   color:white;
+  text-align: left;
   }
   
   #descriptionHead{

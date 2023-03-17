@@ -34,17 +34,20 @@ export const patchArticle = (article_id, singleVote) => {
     });
 };
 
-export const postComment = (article_id, newComment) => {
+export const postComment = (article_id, newComment, user) => {
   return articlesAPI
     .post(`/articles/${article_id}/comments`, {
       body: newComment,
-      username: "grumpy19", //MAKE DYNAMIC
+      username: user,
     })
     .then(({ data }) => {
       return data.postedComment;
     });
 };
 
-// export const getTopics = () => {
-//   return articleAPI;
-// };
+export const getTopics = () => {
+  return articlesAPI.get("/topics").then(({ data }) => {
+    console.log(data, "sdn");
+    return data.topics;
+  });
+};
