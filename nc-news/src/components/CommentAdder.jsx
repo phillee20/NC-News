@@ -1,11 +1,9 @@
 import { useState } from "react";
 import { postComment } from "../api";
 import { useParams } from "react-router-dom";
-
 function CommentAdder({ comments, setComments }) {
   const { article_id } = useParams();
   const [newComment, setNewComment] = useState("");
-
   const handleSubmit = (event) => {
     event.preventDefault();
     postComment(article_id, newComment).then((response) => {
@@ -14,11 +12,9 @@ function CommentAdder({ comments, setComments }) {
       setNewComment("");
     });
   };
-
   return (
     <form className="commentAdder" onSubmit={handleSubmit}>
       <section>Name</section>
-
       <section>
         <label htmlFor="textCommentArea">Comment: </label>
         <textarea
@@ -34,7 +30,6 @@ function CommentAdder({ comments, setComments }) {
           }}
         ></textarea>
       </section>
-
       <section>
         <br></br>
         <button className="commentSubmitBtn" type="submit">
@@ -44,5 +39,4 @@ function CommentAdder({ comments, setComments }) {
     </form>
   );
 }
-
 export default CommentAdder;
