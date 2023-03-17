@@ -35,7 +35,6 @@ export const patchArticle = (article_id, singleVote) => {
     });
 };
 
-
 export const getTopics = () => {
-  return articleAPI
-}
+  return articleAPI;
+};
