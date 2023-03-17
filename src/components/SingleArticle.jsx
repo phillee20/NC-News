@@ -71,7 +71,7 @@ export function SingleArticle() {
       <img
         id="singleArticleImage"
         src={singleArticle.article_img_url}
-        alt="article Image"
+        alt="article"
       />
       <p id="singleArticleAuthor">
         <b>Author:</b> {singleArticle.author}

@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { getTopics } from "../api";
 
 function Topics() {
-  const [topics, setTopics] = useState([]);
+  //const [topics, setTopics] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [selectedValue, setSelectedValue] = useState("");
 
@@ -10,7 +10,7 @@ function Topics() {
     setIsLoading(true);
     getTopics().then((response) => {
       console.log(response);
-      setTopics(response);
+      //setTopics(response);
       setIsLoading(false);
     });
   }, []);

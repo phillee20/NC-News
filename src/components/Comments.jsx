@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { fetchArticleComment } from "../api";
 import timeFormat from "./utils";
-import CommentAdder from "./commentAdder";
+import CommentAdder from "./CommentAdder";
 
 function Comments() {
   const { article_id } = useParams();
