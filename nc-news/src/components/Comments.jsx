@@ -2,11 +2,11 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { fetchArticleComment } from "../api";
 import timeFormat from "./utils";
+import CommentAdder from "./commentAdder";
 
 function Comments() {
   const { article_id } = useParams();
   const [comments, setComments] = useState([]);
-  const [userVote, setUserVote] = useState(0);
 
   useEffect(() => {
     fetchArticleComment(article_id).then((commentsFromAPI) => {
@@ -17,6 +17,7 @@ function Comments() {
   return (
     <section>
       <h2 id="CommentTitle">Comments</h2>
+      <CommentAdder comments={comments} setComments={setComments} />
       <ul>
         {comments.map((comment) => {
           return (
