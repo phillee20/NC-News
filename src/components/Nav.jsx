@@ -7,6 +7,9 @@ function Nav() {
         <Link to={"/"}>
           <h2 id="navHome">Home</h2>
         </Link>
+        <Link to={"/News"}>
+          <h2 id="navNews">News</h2>
+        </Link>
         <Link to={"/Topics"}>
           <h2 id="navTopic">Topics</h2>
         </Link>

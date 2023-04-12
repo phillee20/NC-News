@@ -1,42 +1,47 @@
-/* Mobile first design */
-
 *{
-  background-color: black;
+  background-color: white;
 }
 
 .App {
-  text-align: center;
-  background-color: black;
+  background-color: white
 }
   
 .header{
 text-decoration: none;
-color:firebrick;
-background-color:black
+color:black;
+background-color:white
 }
 
 
 #navHome{
   background-color:white;
+ margin:0.5rem
 }
+
+#navNews{
+  background-color: white;
+  margin:0.5rem
+  }
 
 #navTopic{
   background-color: white;
+  margin:0.5rem
 }
 
 #navUser{
 background-color: white;
+margin:0.5rem
 }
 
 
 .nav {
   display:flex;
-  justify-content:space-evenly;
-  color:firebrick;
-  background-color:white;
-  border-radius: 2px;
+  justify-content: flex-end;
+  color: firebrick;
+  background-color: white;
+  margin:10px;
+}
 
-  }
   
 .nav a {
   text-decoration:solid;
@@ -48,12 +53,12 @@ background-color: white;
   color:crimson;
 }
 
-
 .imgSize{
-max-width: 100%;
-max-height: auto;
-border-radius: 40px;
-}
+  max-width: 100%;
+  max-height: auto;
+  border-radius: 40px;
+  }
+
   
 .imgSize:hover{
 border: solid 4px black;
@@ -62,7 +67,7 @@ border: solid 4px black;
 
 .articleTitle{
 font-size: 1rem;
-color:white;
+color: black
 }
   
 .articleTitle:hover{
@@ -71,7 +76,6 @@ color:crimson;
   
 
   #singleArticleImage{
-  border-bottom: double;
   padding: 1rem;
   }
   
@@ -85,23 +89,23 @@ color:crimson;
   .articleVotesBtn{
     border-radius: 20px;
     color:white;
-
+    justify-content: center;
   }
 
   #singleArticleAuthor {
-  text-align: left;
-  color: white;
+  text-align: center;
+  color: black;
   }
   
   
   #descriptionHead{
-  text-align: left;
-  color: white;
+  text-align: center;
+  color: black;
   }
   
   #descriptionBody{
-  background-color: black;
-  color:white;
+  background-color: white;
+  color:black;
 
   }
   
@@ -113,27 +117,27 @@ color:crimson;
   }
 
   #articleVotesCount{
-    color:white;
+    color:black;
   }
 
   .articleVoteEmoji{
-    color:white;
+    color:Black;
     border-color:grey;
     background-color:grey;
   }
   
   #commentCount{
-    color:white;
+    color:black;
   }
 
   .commentVote{
     text-align: right;
     padding:1rem;
-    color:white;
+    color:black;
     }
 
   .commentLabel{
-color: white;
+color: black;
   }
 
   .commentList {
@@ -141,18 +145,18 @@ color: white;
   border-style: double;
   padding: 0;
   margin: 0;
-  color:white;
+  color:black;
   }
   
   
   .commentUser {
   text-align: left;
-  color:white;
+  color:black;
   }
   
   .commentDate {
   text-align: left;
-  color:white;
+  color:black;
   }
   
   .textCommentArea{
@@ -165,23 +169,23 @@ color: white;
 
 .nameInput{
   color: black;
-    text-align: left;
-    border: 1rem;
-    border-color:grey;
-    background-color:whitesmoke;
+  text-align: left;
+  border: 1rem;
+  border-color:grey;
+  background-color:whitesmoke;
 }
 
 
   #name{
-    text-align: left;
+    text-align: center;
     color:white;
   }
 
 
 .commentSubmitBtn{
-  color:white;
+  color:black;
   border-radius: 10px;
-  border-color: white;
+  border-color: black;
 }
 
 #voteErrorMsg{
@@ -189,22 +193,31 @@ color:red;
 }
 
 .dropDownTopics{
-  color:white;
+  color:black;
   background:transparent;
 }
 
 .topicOptions{
-  color: white;
+  color: black;
   background-color: white;
 }
 
 #topicLabel{
-  color:white;
+  color:black;
 }
 
 .topicSubmitBtn {
   color:black;
   background-color: white;
+}
+
+.introParagraph{
+  display:flex;
+  justify-content: left;
+  text-align: left;
+}
+.HomeArticleCard{
+  justify-content: left;
 }
 
 
@@ -219,24 +232,25 @@ color:red;
   
   #singleArticleAuthor {
   position: static;
-  color:white;
+  color:black;
+  text-align: left;
   }
   
   #topic{
   position: static;
-  color:white;
+  color:black;
   text-align: left;
   }
   
   #descriptionHead{
   font-size: 1.5rem;
-  color:white;
+  color:black;
   }
   
   #descriptionBody{
     background-blend-mode: hard-light;
-    color:white;
-    border-style:solid;
+    color:black;
+    border-style:double;
     border-radius: 2px;
     padding-left: 10px;
     padding-right: 10px;
