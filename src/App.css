@@ -1,42 +1,59 @@
-/* Mobile first design */
-
 *{
-  background-color: black;
+  background-color: white;
+}
+
+.introParagraph{
+  justify-content: left;
+  margin:0.5rem;
+  padding: 0.5rem;
+  text-align: left;
+
 }
 
 .App {
+  background-color: white;
   text-align: center;
-  background-color: black;
 }
   
 .header{
 text-decoration: none;
-color:firebrick;
-background-color:black
+color:black;
+background-color:blanchedalmond;
+padding:1.5rem;
+margin: 1rem;
+text-align: left;
 }
 
 
 #navHome{
-  background-color:white;
+background-color:white;
+margin:0.5rem
+
+}
+
+#navNews{
+background-color: white;
+margin:0.5rem
 }
 
 #navTopic{
-  background-color: white;
+background-color: white;
+margin:0.5rem
 }
 
 #navUser{
 background-color: white;
+margin:0.5rem
 }
 
 
 .nav {
   display:flex;
-  justify-content:space-evenly;
-  color:firebrick;
-  background-color:white;
-  border-radius: 2px;
+  justify-content: flex-end;
+  background-color: white;
+  margin:10px;
+}
 
-  }
   
 .nav a {
   text-decoration:solid;
@@ -48,21 +65,23 @@ background-color: white;
   color:crimson;
 }
 
-
+/* All articles images in News Page */
 .imgSize{
-max-width: 100%;
-max-height: auto;
-border-radius: 40px;
-}
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 10px;
+  }
+
   
 .imgSize:hover{
 border: solid 4px black;
  margin: -2px;
 }
 
-.articleTitle{
+/* All articles in News Page */
+.articleTitle{ 
 font-size: 1rem;
-color:white;
+color: black
 }
   
 .articleTitle:hover{
@@ -70,70 +89,77 @@ color:crimson;
 }
   
 
-  #singleArticleImage{
-  border-bottom: double;
-  padding: 1rem;
-  }
-  
-  .articleCard{
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-gap: 20px;
-  color:white;
-  }
+#singleArticleImage{
+padding: 0.5rem;
+}
 
-  .articleVotesBtn{
-    border-radius: 20px;
-    color:white;
 
-  }
+/* Articles in News Page layout */
+.articleCard{
+display: grid;
+grid-template-columns: repeat(2, 1fr);
+grid-gap: 20px;
+}
 
-  #singleArticleAuthor {
-  text-align: left;
-  color: white;
-  }
+.articleVotesBtn{
+border-radius: 20px;
+color:white;
+justify-content: center;
+text-align: center;
+}
+
+#singleArticleAuthor {
+text-align: center;
+color: black;
+}
   
   
   #descriptionHead{
+  text-align: center;
+  color: black;
   text-align: left;
-  color: white;
   }
   
   #descriptionBody{
-  background-color: black;
-  color:white;
-
+  background-color: white;
+  color:black;
   }
   
 
-  #articleList {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-  }
-
   #articleVotesCount{
-    color:white;
+    color:black;
+    text-align: center;
   }
 
   .articleVoteEmoji{
-    color:white;
+    color:Black;
     border-color:grey;
     background-color:grey;
+    text-align: center;
+    justify-content: center;
   }
+
   
   #commentCount{
-    color:white;
+    color:black;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .commentTitle{
+  justify-content: flex-start; 
+  text-align: center;
   }
 
   .commentVote{
     text-align: right;
     padding:1rem;
-    color:white;
+    color:black;
     }
 
   .commentLabel{
-color: white;
+color: black;
+text-align: center;
   }
 
   .commentList {
@@ -141,18 +167,18 @@ color: white;
   border-style: double;
   padding: 0;
   margin: 0;
-  color:white;
+  color:black;
   }
   
   
   .commentUser {
   text-align: left;
-  color:white;
+  color:black;
   }
   
   .commentDate {
   text-align: left;
-  color:white;
+  color:black;
   }
   
   .textCommentArea{
@@ -165,23 +191,23 @@ color: white;
 
 .nameInput{
   color: black;
-    text-align: left;
-    border: 1rem;
-    border-color:grey;
-    background-color:whitesmoke;
+  text-align: left;
+  border: 1rem;
+  border-color:grey;
+  background-color:whitesmoke;
 }
 
-
   #name{
-    text-align: left;
+    text-align: center;
     color:white;
   }
 
 
 .commentSubmitBtn{
-  color:white;
+  color:black;
   border-radius: 10px;
-  border-color: white;
+  border-color: black;
+  text-align: center;
 }
 
 #voteErrorMsg{
@@ -189,22 +215,37 @@ color:red;
 }
 
 .dropDownTopics{
-  color:white;
+  color:black;
   background:transparent;
 }
 
 .topicOptions{
-  color: white;
+  color: black;
   background-color: white;
 }
 
 #topicLabel{
-  color:white;
+  color:black;
 }
 
 .topicSubmitBtn {
   color:black;
   background-color: white;
+}
+
+.homeArticleCard0 {
+  height:auto;
+  width: auto;
+}
+
+.homeArticleCard1 {
+  height:60%;
+  width: 60%; 
+}
+
+.homeArticleCard2 {
+  height: 60px;
+  width: 60px; 
 }
 
 
@@ -219,24 +260,25 @@ color:red;
   
   #singleArticleAuthor {
   position: static;
-  color:white;
+  color:black;
+  text-align: left;
   }
   
   #topic{
   position: static;
-  color:white;
+  color:black;
   text-align: left;
   }
   
   #descriptionHead{
   font-size: 1.5rem;
-  color:white;
+  color:black;
   }
   
   #descriptionBody{
     background-blend-mode: hard-light;
-    color:white;
-    border-style:solid;
+    color:black;
+    border-style:double;
     border-radius: 2px;
     padding-left: 10px;
     padding-right: 10px;

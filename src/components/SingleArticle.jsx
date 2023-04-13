@@ -57,14 +57,6 @@ export function SingleArticle() {
     });
   };
 
-  //   const hasUpVoted =
-  //     upVotes !== 0 ||
-  //     localStorage.getItem(singleArticle.article_id + "_up") === "voted";
-
-  //   const hasDownVoted =
-  //     downVotes !== 0 ||
-  //     localStorage.getItem(singleArticle.article_id + "_down") === "voted";
-
   return (
     <div>
       <h2 id="articleTitle">{singleArticle.title}</h2>
