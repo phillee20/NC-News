@@ -16,7 +16,7 @@ function Comments() {
 
   return (
     <section>
-      <h2 id="CommentTitle">Comments</h2>
+      <h2 className="CommentTitle">Comments</h2>
       <CommentAdder comments={comments} setComments={setComments} />
       <ul>
         {comments.map((comment) => {

@@ -11,7 +11,7 @@ function Nav() {
           <h2 id="navNews">News</h2>
         </Link>
         <Link to={"/Topics"}>
-          <h2 id="navTopic">Topics</h2>
+          <h2 id="navTopic">Categories</h2>
         </Link>
         <Link to={"/Users"}>
           <h2 id="navUser">Users</h2>
