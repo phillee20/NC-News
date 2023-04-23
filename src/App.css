@@ -1,5 +1,6 @@
 *{
   background-color: white;
+  text-decoration: none;
 }
 
 .introParagraph{
@@ -17,8 +18,9 @@
   
 .header{
 text-decoration: none;
+
 color:black;
-background-color:blanchedalmond;
+background-color:darkslategray;
 padding:1.5rem;
 margin: 1rem;
 text-align: left;
@@ -51,18 +53,19 @@ margin:0.5rem
   display:flex;
   justify-content: flex-end;
   background-color: white;
+  text-decoration: none;
   margin:10px;
 }
 
   
 .nav a {
-  text-decoration:solid;
+  text-decoration:none;
   color:black;
   background-color:white;
 }
 
 .nav a:hover{
-  color:crimson;
+  color:darkslategray;
 }
 
 /* All articles images in News Page */
@@ -85,7 +88,7 @@ color: black
 }
   
 .articleTitle:hover{
-color:crimson;
+color:darkslategray;
 }
   
 
