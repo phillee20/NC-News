@@ -17,8 +17,6 @@
 }
   
 .header{
-text-decoration: none;
-
 color:black;
 background-color:darkslategray;
 padding:1.5rem;
@@ -73,12 +71,14 @@ margin:0.5rem
   max-width: 100%;
   max-height: 100%;
   border-radius: 10px;
-  }
+  margin-right: 2rem;
+  margin-left: -1rem;
+}
 
   
 .imgSize:hover{
 border: solid 4px black;
- margin: -2px;
+margin: -auto;
 }
 
 /* All articles in News Page */
