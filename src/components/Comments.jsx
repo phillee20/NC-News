@@ -17,7 +17,11 @@ function Comments() {
   return (
     <section>
       <h2 className="CommentTitle">Comments</h2>
-      <CommentAdder comments={comments} setComments={setComments} />
+      <CommentAdder
+        className="commentSection"
+        comments={comments}
+        setComments={setComments}
+      />
       <ul>
         {comments.map((comment) => {
           return (

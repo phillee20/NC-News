@@ -18,7 +18,7 @@ function CommentAdder({ comments, setComments }) {
   return (
     <form className="commentAdder" onSubmit={handleSubmit}>
       <section>
-        <label htmlFor="nameInput">Name</label>
+        <label htmlFor="nameInput">Name </label>
         <input
           className="nameInput"
           placeholder="Enter valid name"
@@ -29,7 +29,6 @@ function CommentAdder({ comments, setComments }) {
       </section>
       <br></br>
       <section>
-        <label htmlFor="textCommentArea">Comment: </label>
         <textarea
           placeholder="Please enter a comment here"
           rows="5"

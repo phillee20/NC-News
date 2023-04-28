@@ -5,10 +5,9 @@
 
 .introParagraph{
   justify-content: left;
-  margin:0.5rem;
+  margin: 1rem;
   padding: 0.5rem;
   text-align: left;
-
 }
 
 .App {
@@ -17,11 +16,17 @@
 }
   
 .header{
-color:black;
-background-color:darkslategray;
-padding:1.5rem;
-margin: 1rem;
-text-align: left;
+  color:black;
+  background-color:darkslategray;
+  padding:1.5rem;
+  margin: 1rem;
+  text-align: left;
+}
+
+@media screen and (max-width: 767px) {
+  .header {
+    text-align: left;
+  }
 }
 
 
@@ -66,7 +71,7 @@ margin:0.5rem
   color:darkslategray;
 }
 
-/* All articles images in News Page */
+/* Each articles image in NEWS tab */
 .imgSize{
   max-width: 100%;
   max-height: 100%;
@@ -81,7 +86,7 @@ border: solid 4px black;
 margin: -auto;
 }
 
-/* All articles in News Page */
+/* All articles in NEWS Page */
 .articleTitle{ 
 font-size: 1rem;
 color: black
@@ -92,12 +97,14 @@ color:darkslategray;
 }
   
 
-#singleArticleImage{
-padding: 0.5rem;
+#singleArticleImage {
+  padding: 0;
+  height: auto;
+  max-width: 100%;
 }
 
 
-/* Articles in News Page layout */
+/* Articles in NEWS tabs */
 .articleCard{
 display: grid;
 grid-template-columns: repeat(2, 1fr);
@@ -117,13 +124,13 @@ color: black;
 }
   
   
-  #descriptionHead{
+#descriptionHead{
   text-align: center;
   color: black;
   text-align: left;
   }
   
-  #descriptionBody{
+#descriptionBody{
   background-color: white;
   color:black;
   }
@@ -168,9 +175,11 @@ text-align: center;
   .commentList {
   list-style-type: none;
   border-style: double;
-  padding: 0;
-  margin: 0;
   color:black;
+  align-items: center;
+  justify-content: center;
+  margin-right: 3rem;
+
   }
   
   
@@ -213,6 +222,9 @@ text-align: center;
   text-align: center;
 }
 
+
+
+
 #voteErrorMsg{
 color:red;
 }
@@ -236,19 +248,63 @@ color:red;
   background-color: white;
 }
 
+.HomeArticleTitle{
+text-align: center;
+margin: 2rem;
+}
+
+/*First home article card*/
 .homeArticleCard0 {
   height:auto;
   width: auto;
+  align-items: center;
+  margin: 1rem;
+  justify-items: center;
 }
 
+/*Second home article card*/
 .homeArticleCard1 {
   height:60%;
   width: 60%; 
 }
 
+/*Third home article card*/
 .homeArticleCard2 {
   height: 60px;
   width: 60px; 
+}
+
+.HomeArticleImg{
+  max-width: 100%;
+  height: auto;
+}
+
+
+/*Adjust Home article Images sizing*/
+@media screen and (max-width: 767px) {
+  .HomeArticleImg {
+    max-width: 85%;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.commentSection {
+  margin-top: 1rem;
+}
+
+.commentList {
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  background-color: #f5f5f5;
+  border-radius: 0.5rem;
+
+}
+
+@media (max-width: 767px) {
+  .commentList {
+    font-size: 0.8rem;
+  }
 }
 
 
@@ -260,13 +316,15 @@ color:red;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: auto;
     }
+
   
   #singleArticleAuthor {
   position: static;
   color:black;
   text-align: left;
   }
-  
+
+
   #topic{
   position: static;
   color:black;

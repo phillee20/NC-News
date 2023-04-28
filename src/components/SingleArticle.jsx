@@ -90,7 +90,7 @@ export function SingleArticle() {
         }}
         disabled={hasUpVoted}
       >
-        <span className="articleVoteEmoji">Vote 👍:</span>
+        <span className="articleVoteEmoji">Vote 👍</span>
       </button>
 
       <button //Decrement Button
@@ -102,7 +102,7 @@ export function SingleArticle() {
         }}
         disabled={hasDownVoted}
       >
-        <span className="articleVoteEmoji">Vote 👎:</span>
+        <span className="articleVoteEmoji">Vote 👎</span>
       </button>
 
       {upVotingErr || //Error Handling
