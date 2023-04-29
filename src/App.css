@@ -29,11 +29,9 @@
   }
 }
 
-
 #navHome{
 background-color:white;
 margin:0.5rem
-
 }
 
 #navNews{
@@ -51,65 +49,68 @@ background-color: white;
 margin:0.5rem
 }
 
-
 .nav {
-  display:flex;
-  justify-content: flex-end;
-  background-color: white;
-  text-decoration: none;
-  margin:10px;
+display:flex;
+justify-content: flex-end;
+background-color: white;
+text-decoration: none;
+margin:10px;
 }
 
   
 .nav a {
-  text-decoration:none;
-  color:black;
-  background-color:white;
+text-decoration:none;
+color:black;
+background-color:white;
 }
 
 .nav a:hover{
-  color:darkslategray;
+color:darkslategray;
 }
 
 /* Each articles image in NEWS tab */
 .imgSize{
-  max-width: 100%;
-  max-height: 100%;
-  border-radius: 10px;
-  margin-right: 2rem;
-  margin-left: -1rem;
+max-width: 100%;
+max-height: 100%;
+border-radius: 10px;
+margin-right: 2rem;
+margin-left: -1rem;
 }
 
-  
 .imgSize:hover{
 border: solid 4px black;
 margin: -auto;
 }
 
-/* All articles in NEWS Page */
-.articleTitle{ 
-font-size: 1rem;
-color: black
-}
-  
-.articleTitle:hover{
-color:darkslategray;
-}
   
 
 #singleArticleImage {
-  padding: 0;
-  height: auto;
-  max-width: 100%;
+padding: 0;
+height: auto;
+max-width: 100%;
 }
 
 
-/* Articles in NEWS tabs */
+/* All Articles in NEWS tabs */
 .articleCard{
 display: grid;
 grid-template-columns: repeat(2, 1fr);
 grid-gap: 20px;
 }
+
+.articleTitle{ 
+font-size: 1rem;
+color: black;
+max-width: 100%;
+max-height: 100%;
+margin-right: 2rem;
+margin-left: -1rem;
+}
+    
+.articleTitle:hover{
+color:darkslategray;
+}
+
 
 .articleVotesBtn{
 border-radius: 20px;
@@ -179,7 +180,6 @@ text-align: center;
   align-items: center;
   justify-content: center;
   margin-right: 3rem;
-
   }
   
   
@@ -222,9 +222,6 @@ text-align: center;
   text-align: center;
 }
 
-
-
-
 #voteErrorMsg{
 color:red;
 }
@@ -250,22 +247,19 @@ color:red;
 
 .HomeArticleTitle{
 text-align: center;
-margin: 2rem;
+margin: 1rem;
 }
 
 /*First home article card*/
 .homeArticleCard0 {
-  height:auto;
-  width: auto;
-  align-items: center;
-  margin: 1rem;
-  justify-items: center;
+  height: 60px;
+  width: 60px; 
 }
 
 /*Second home article card*/
 .homeArticleCard1 {
-  height:60%;
-  width: 60%; 
+  height: 60px;
+  width: 60px; 
 }
 
 /*Third home article card*/
@@ -283,9 +277,10 @@ margin: 2rem;
 /*Adjust Home article Images sizing*/
 @media screen and (max-width: 767px) {
   .HomeArticleImg {
-    max-width: 85%;
-    justify-content: center;
-    align-items: center;
+    max-width: 100%;
+    max-height: 100%;
+    margin-right: 1rem;
+    margin-left: -1rem;
   }
 }
 
